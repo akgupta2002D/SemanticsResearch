@@ -1,0 +1,74 @@
+*{
+    margin: 0px;
+    color: rgba(43, 43, 43, 0.84);
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav{
+    flex: 0 0 300px; /* Makes the nav 300px wide and not flexible */
+    height: 100vh;
+    position: sticky;
+    top: 0; /* Makes the navbar sticky */
+    padding-top: 20px;
+    text-align: center;
+    background-color: rgba(2, 65, 2, 0.717);
+    
+}
+
+.nav-bar-title{
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    color: rgba(2, 65, 2, 0.717);
+    border-radius: 5px;
+}
+
+.nav-bar-title h2, h4{
+    
+    color: rgba(2, 65, 2, 0.717);
+    
+}
+
+
+.nav-links{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+.nav-links a{
+    color: white;
+    text-decoration: none;
+    padding-top: 5px;
+    
+}
+.sections{
+    flex-grow: 1; /* Allows the content section to grow and fill available space */
+    padding: 20px; 
+    padding-top: 40px;
+}
+
+.right-column {
+    flex: 0 0 300px; /* Makes the right column 350px wide and not flexible */
+    padding: 20px; /* Adds some spacing inside the right column */
+    border-left: 2px solid rgba(2, 65, 2, 0.717);
+    padding-top: 40px;
+}
+
+.video-holder{
+    padding: 10px;
+}
+
+section{
+    margin-top: 10px;
+}

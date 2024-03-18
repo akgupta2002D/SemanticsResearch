@@ -1,0 +1,15 @@
+
+h1{
+    font-size: 22px;
+    font-weight: 500;
+    color: rgba(29, 30, 29, 0.849);
+    margin-bottom: 5px;
+}
+
+p{
+    color: rgba(43, 43, 43, 0.84);
+}
+
+strong{
+    color: rgba(43, 43, 43, 0.84);
+}
