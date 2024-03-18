@@ -1,0 +1,16 @@
+.create_solid_line{
+    border-top: 2px solid rgba(128, 128, 128, 0.361);
+    margin: 15px 0px;
+}
+
+.code-container {
+    margin-top: 10px;
+    width: 100%; /* or a fixed width */
+    max-height: 200px; /* Adjust based on your requirement */
+    overflow: auto; /* Enables scrolling */
+    background-color: rgba(2, 65, 2, 0.128); /* Light grey background */
+    border: 1px solid #ddd; /* Light grey border */
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1); /* Optional: adds shadow for better visibility */
+    padding: 10px;
+    font-family: sans-serif; /* Ensures code is displayed in a monospaced font */
+}

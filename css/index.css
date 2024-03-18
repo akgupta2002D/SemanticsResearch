@@ -29,12 +29,17 @@ nav{
     border-radius: 5px;
 }
 
-.nav-bar-title h2, h4{
+.nav-bar-title h2{
     
     color: rgba(2, 65, 2, 0.717);
+    font-size: 24px;
+    font-weight: 640;
     
 }
 
+.nav-bar-title h4 {
+    color: grey;
+}
 
 .nav-links{
     text-align: left;
@@ -61,7 +66,7 @@ nav{
 .right-column {
     flex: 0 0 300px; /* Makes the right column 350px wide and not flexible */
     padding: 20px; /* Adds some spacing inside the right column */
-    border-left: 2px solid rgba(2, 65, 2, 0.717);
+    border-left: 2px solid rgba(2, 65, 2, 0.269);
     padding-top: 40px;
 }
 

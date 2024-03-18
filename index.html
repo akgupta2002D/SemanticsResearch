@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/text.css">
     <link rel="stylesheet" href="css/mobile_screen.css">
     <link rel="stylesheet" href="css/img_elements.css">
+    <link rel="stylesheet" href="css/decoratives.css">
+    <link rel="stylesheet" href="css/resourcesSection.css">
     <title>Semantics-Research</title>
 </head>
 <body>
@@ -22,31 +24,38 @@
             <div class="nav-links">
                 <a href="#research_introduction">What is our Research about?</a>
                 <a href="#semantics-meaning">What is Semantics?</a>
-                <a href="#ontology">What is an ontology?</a>
-                <a href="#services">Services</a>
-                <a href="#contact">Contact</a>
+                <a href="#ontologies">What is an ontology?</a>
+                <a href="#ontologyLanguages">Understanding Rdf/Rdfs/Owl</a>
+                <a href="#apacheJena">Apache Jena</a>
             </div>
             
         </nav>
         <!-- It holds the different sections which are different contents/topics of our research -->
         <div class="sections">
-            <!-- This talks about introduction to semantics -->
+            
+            <!-- A brief introduction to our research -->
 
             <section id="research_introduction">
                 <h1>What is our research about?</h1>
                 <p>
-                    (Need to Change!) 
-                    We aim to 
+                    
+                    Our research integrates semantic web technologies with machine learning to construct models that preserve the intrinsic context and semantics of data. Semantic graph structures ensure that the natural interconnectivity within the data is maintained, facilitating interpretability. This approach diverges from conventional machine learning techniques that typically convert data into numerical forms, potentially stripping it of its original meaning. (Ref: Semacle Website and my own understanding.) (Need to Change!) 
                 </p>
-                <h2>The components of our research are listed in the image below, We will get into details right after.</h2>
+                
                 <div class="imageContainer">
-                    <img style="width: 55%; height: 350px;" src="images/SemanticsComponents.png" alt="">
+                    <img style="width: 55%; height: auto;" src="images/SemanticsComponents.png" alt="">
                 </div>
+
+                <h2 style="padding-left: 10px;">Figure: The components of our Semantic research.</h2>
                 
             </section>
 
+            <div class="create_solid_line"></div>
+
+            <!-- This talks about introduction to semantics -->
+
             <section id="semantics-meaning">
-                <h1>What is Semantics?</h1>
+                <h1>Semantics</h1>
                 <p>
                     Semantics simply means <strong>the study of meaning.</strong> It originates from the Greek word <i>Sema</i> which means <em>Sign</em>. 
                 </p>
@@ -63,13 +72,168 @@
                 </ul>
             </section>
 
+
             <section id="ontologies">
                 <h1>
-                    What is an Ontology?
+                    Ontology
                 </h1>
                 <p>
                     An ontology in the context of computer science and information science is a formal representation of knowledge as a set of concepts within a domain, and the relationships between those concepts.
                 </p>
+                <p>
+                    In our reseach we are using Rdf,Rdfs,and Owl to write our ontologies. We will look at an ontology right after defining these.
+                </p>
+            </section>
+
+            <div class="create_solid_line"></div>
+
+            <section class="ontologyLanguages">
+                <h1>
+                    Understanding RDF - RDFs - OWL
+                </h1>
+                <p>
+                    The Resource Description Framework (RDF), RDF Schema (RDFS), and the Web Ontology Language (OWL) are foundational technologies of the Semantic Web, which is an extension of the World Wide Web through standards set by the World Wide Web Consortium (W3C). 
+                </p>
+
+                <h2>How are they related?</h2>
+
+                <ul>
+                    <li><strong>RDF</strong> provides the basic framework for describing web resources in a triple format.</li>
+                    <li><strong>RDFs</strong> builds on RDF by providing a basic ontology system to support the definition of classes (types of things) and properties (relationships between things).</li>
+                    <li><strong>OWL</strong> further extends RDFS by offering a more expressive schema or ontology language. OWL enables more complex relationships between entities, such as equivalence between classes, cardinality (e.g., a person may have multiple email addresses but only one birthdate), and richer property characteristics.</li>
+                </ul>
+
+                <div class="imageContainer">
+                    <img style ="width: 40%; height:auto;" src="images/RDFS.png" alt="">
+                </div>
+
+            </section>
+
+            <div class="create_solid_line"></div>
+
+            <section class="ontology_example">
+                <h1>So, basically we use OWL to write our Ontologies in Semantic WorkBench (More of this later). </h1>
+                <p>
+                    Let's write our own ontology now:
+                </p>
+                <h2>An ontology to describe Soda and Snack: SodaAndSnackOntology</h2>
+                <ul>
+                    <li>Classes:
+                      <ul>
+                        <li>Product: A general category for items.
+                          <ul>
+                            <li>Drink: A subclass of Product for beverages.
+                              <ul>
+                                <li>CarbonatedDrink: A subclass of Drink specifically for drinks with carbonation.</li>
+                              </ul>
+                            </li>
+                            <li>Snack: A subclass of Product for food items intended to be eaten between meals.</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>Properties:
+                      <ul>
+                        <li>hasName: Describes the name of a product. Applies to all Products.</li>
+                        <li>isCarbonated: Indicates whether a drink has carbonation. Applies to Drinks.</li>
+                        <li>hasFlavor: Specifies the flavor of a product. Applies to both Drinks and Snacks.</li>
+                      </ul>
+                    </li>
+                  </ul>
+                  
+                  <h2>Go through the ontology below:</h2>
+                <pre class="code-container">
+                    <!-- #region Description -->
+                    <code>
+                        Scroll Down to view full code
+                        # Namespace prefixes
+                        @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+                        @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+                        @prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+                        @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+                        @prefix product: &lt;http://example.org/ontology#&gt; .
+
+                        # Class declarations
+
+                        # Product - A generic class for all products.
+                        :Product a owl:Class .
+
+                        # Drink - A subclass of Product for drinkable products.
+                        :Drink a owl:Class ;
+                            rdfs:subClassOf :Product .
+
+                        # CarbonatedDrink - A subclass of Drink for carbonated beverages.
+                        :CarbonatedDrink a owl:Class ;
+                                        rdfs:subClassOf :Drink .
+
+                        # Snack - A subclass of Product for snack items.
+                        :Snack a owl:Class ;
+                            rdfs:subClassOf :Product .
+
+                        # Property declarations
+
+                        # hasName - Specifies the name of a product.
+                        :hasName a owl:DatatypeProperty ;
+                                rdfs:domain :Product ;
+                                rdfs:range xsd:string .
+
+                        # isCarbonated - Indicates whether a drink is carbonated.
+                        :isCarbonated a owl:DatatypeProperty ;
+                                    rdfs:domain :Drink ;
+                                    rdfs:range xsd:boolean .
+
+                        # hasFlavor - Describes the flavor of a product.
+                        :hasFlavor a owl:DatatypeProperty ;
+                                rdfs:domain :Product ;
+                                rdfs:range xsd:string .
+
+                        # Instances of classes
+
+                        # CocaColaInstance - An instance of CarbonatedDrink representing Coca-Cola.
+                        :CocaColaInstance a :CarbonatedDrink ;
+                                        :hasName "Coca-Cola" ;
+                                        :isCarbonated true ;
+                                        :hasFlavor "Cola" .
+
+                        # LaysClassicInstance - An instance of Snack representing Lays Classic chips.
+                        :LaysClassicInstance a :Snack ;
+                                            :hasName "Lays Classic" ;
+                                            :hasFlavor "Salty" .
+
+                        # SpriteInstance - Another instance of CarbonatedDrink representing Sprite.
+                        :SpriteInstance a :CarbonatedDrink ;
+                                        :hasName "Sprite" ;
+                                        :isCarbonated true ;
+                                        :hasFlavor "Lemon-Lime" .
+
+                        # OreoInstance - An instance of Snack representing Oreo cookies.
+                        :OreoInstance a :Snack ;
+                                    :hasName "Oreo" ;
+                                    :hasFlavor "Chocolate" .
+
+                    </code>
+                    <!-- #endregion -->
+                </pre>
+
+                <h2>We visualize the ontology below:</h2>
+
+
+                <div class="imageContainer">
+                    <img style="width:100%;" src="images/SodaAndSnackOntology.txt.svg" alt="">
+                </div>
+
+                <h2 style="padding-left: 10px;">Figure: Visualization of SodaAndSnackOntology</h2>
+                
+            </section>
+
+            <div class="create_solid_line"></div>
+
+            <section id="apacheJena">
+                <h1>Apache Jena</h1>
+                <p>
+                    Apache Jena is a free and open-source Java framework for building Semantic Web and Linked Data applications. It provides a programmatic environment for RDF (Resource Description Framework), RDFS (RDF Schema), RDFa, OWL (Web Ontology Language), and SPARQL (SPARQL Protocol and RDF Query Language). Essentially, it's a toolset that allows developers to work with data in RDF format, which is a standard model for data interchange on the Web.
+                </p>
+                <p style="padding-left: 20px;">To Learn More: <a href="https://jena.apache.org/">Apache Jena Website</a></p>
             </section>
 
 
@@ -81,6 +245,16 @@
             <div class="video-holder">
                 <iframe width="280" height="175" src="https://www.youtube.com/embed/6geQjY8b7sA?si=ru9xE-0Levfje-BH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
+
+            <div class="create_solid_line"></div>
+
+            <p>This video explains OWL and ontology creation using WebVOWL software. </p>
+            <a href="https://youtu.be/JiGRVIQ9rks?si=sB70dNadZJJ-Fv7D">Ontology Explanation</a>
+
+            <div class="create_solid_line"></div>
+
+            <p>The following link is for the OWL Ontology visualizer. You can write your ontologies in Semantic WorkBench and visualize it here.</p>
+            <a href="https://service.tib.eu/webvowl/#">Ontology visualizer</a>
                 
         </div>
     </div>
