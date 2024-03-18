@@ -55,7 +55,7 @@ nav{
 .sections{
     flex-grow: 1; /* Allows the content section to grow and fill available space */
     padding: 20px; 
-    padding-top: 40px;
+    padding-top: 30px;
 }
 
 .right-column {

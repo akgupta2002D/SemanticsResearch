@@ -1,0 +1,32 @@
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    nav {
+        box-sizing: border-box;
+        position: relative;
+        max-height: 140px;
+        width: 100%;
+    }
+
+    .nav-links {
+        display: none; /* Hide the nav bar elements */
+    }
+
+    .sections, .right-column {
+        box-sizing: border-box;
+        flex: 1 0 auto;
+        width: 100%; /* Make sections take full width */
+        border-left: none;
+        padding: 10px 20px;
+
+    }
+
+    .right-column{
+        border-top:2px solid rgba(2, 65, 2, 0.717) ;
+    }
+
+    /* Additional styles for the dropdown menu and adjustments might be needed here */
+}
